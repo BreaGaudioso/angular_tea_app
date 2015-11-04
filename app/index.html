@@ -1,0 +1,38 @@
+<html ng-app="TeaShopApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Tea Shop</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <!--   styling above here -->
+
+  <script src="http://code.angularjs.org/1.4.3/angular.js"></script>
+<!--   // <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script> -->
+  <script src="js/app.js" type="text/javascript"></script>
+<!--    // <script src="js/services.js" type="text/javascript"></script> -->
+  <script src="js/controllers.js" type="text/javascript"></script>
+    <script src="js/filters.js" type="text/javascript"></script>
+</head>
+<body ng-controller="ShopCtrl">
+
+  <div class="container">
+    <label>Search: <input ng-model="searchText"></label>
+    <div class="row">
+    <div class= "col-lg-6" ng-repeat="tea in teas">
+    <img ng-src="{{tea.imageUrl}}">
+    <h3>{{tea.name}}</h3>
+    <h4>{{tea.price | currency }}</br></h4>
+    <p>In Stock? {{ tea.inStock | yesOrNo }}</p>
+    <h5> Rating: {{tea.rating}}</h5>
+    <p>Inredients: {{tea.ingredients}}</p>
+    <p>Caffine Amount: {{tea.caffeineScale}}</p>
+      <p><b>Categories:</b>
+        <li ng-repeat='category in tea.categories'>{{category}}</li>
+      </p>
+    </div>
+  </div>
+  </div>
+</div>
+</body>
+</html>
