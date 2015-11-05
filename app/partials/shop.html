@@ -1,50 +1,43 @@
 
-  <div class="container">
-    <div class="row">
-      <div class= "col-lg-4">
-        <label>Search by name: <input ng-model="searchText.name"></label>
-      </div>
+<div class="container">
+
+  <div class="row">
     <div class= "col-lg-4">
-      Search by Category
+      <label>Search by name: <input ng-model="searchText.name"></label>
+    </div>
+    <div class= "col-lg-4">
+ <label for="{{category}}">Search By Category
       <select ng-model="searchText.categories">
-        <option value=''>all</option>
-        <option>dark</option>
-        <option>cold</option>
-        <option>awesome</option>
-        <option>dry</option>
-        <option>hot</option>
-        <option>summer</option>
-        <option>lucid</option>
-        <option>winter</option>
-        <option>warm</option>
-        <option>spring</option>
+        <option ng-repeat="category in categories" id="{{category}}">{{ category }}</option>
       </select>
+    </label>
     </div>
-    </div>
-    
-    <div class="row">
-    <div class= "col-lg-6" ng-repeat="tea in teas | orderBy: sort | filter: searchText">
-    <img ng-src="{{tea.imageUrl}}">
-    <h3>{{tea.name}}</h3>
-    <h3 class="push right">Quantity
-      <select ng-model="searchText.categories">
-        <option value=''>0</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select> <button type="submit">Add to Bag</button>
-    </h3>
-    <h4>{{tea.price | currency }}</br></h4>
-    <p>In Stock? {{ tea.inStock | yesOrNo }}</p>
-    <h5> Rating: {{tea.rating}}</h5>
-    <p>Inredients: {{tea.ingredients}}</p>
-    <p>Caffine Amount: {{tea.caffeineScale}}</p>
+  </div>
+
+
+  <div class="row">
+    <div class= "col-lg-5" ng-repeat="tea in teas | orderBy: sort | filter: searchText">
+      <h2>{{tea.name}}</h2>
+      <img ng-src="{{tea.imageUrl}}">
+      <h4>Quantity
+        <select ng-model="teaAmount">
+          <option value=''>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select> <button ng-click="addToCart({{tea.id}}, teaAmount)" type="submit">Add to Bag</button>
+      </h3>
+      <h4>{{tea.price / 100 | currency }}</br></h4>
+      <p>In Stock? {{ tea.inStock | yesOrNo }}</p>
+      <h5> Rating: {{tea.rating}}</h5>
+      <p>Inredients: {{tea.ingredients}}</p>
+      <p>Caffine Amount: {{tea.caffeineScale}}</p>
       <p><b>Categories:</b>
         <li ng-repeat='category in tea.categories'>{{category}}</li>
       </p>
     </div>
   </div>
-  </div>
+</div>
 </div>
