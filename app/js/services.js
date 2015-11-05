@@ -14,8 +14,16 @@ app.factory("TeaFactory", ['$http', function($http){
 }]);
 
 app.factory('CartFactory', [function() {
-  var Cart = {};
+  Cart = {};
   Cart.cart =[];
+  Cart.quantity = 0
+    Cart.addToCart = function(id, number) {
+      if (tea !== undefined) {
+        tea = {teaId: id, quantity: number}
+        Cart.cart.push(tea);
+        Cart.quantity += parseInt(tea);
+      }
+    };
   return Cart;
 }]);
 
