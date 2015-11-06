@@ -3,13 +3,13 @@ var app = angular.module('TeaShopApp', ['ngRoute']);
 app.config(function($routeProvider){
   $routeProvider
   .when('/checkout', {
-      templateUrl: 'partials/checkout.html',
+      templateUrl: 'views/checkout.html',
       controller: 'CheckOutCtrl'
   });
   
   $routeProvider
     .otherwise({
-      templateUrl: 'partials/shop.html',
+      templateUrl: 'views/shop.html',
       controller: 'ShopCtrl'
     });
 })
