@@ -4,8 +4,9 @@ app.config(function($routeProvider){
   $routeProvider
   .when('/checkout', {
       templateUrl: 'partials/checkout.html',
-      controller: 'CheckoutCtrl'
+      controller: 'CheckOutCtrl'
   });
+  
   $routeProvider
     .otherwise({
       templateUrl: 'partials/shop.html',
