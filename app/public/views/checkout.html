@@ -11,9 +11,6 @@
       <table>
         <thead>
           <tr>
-            <td>Name</td>
-            <td>Quantity</td>
-            <td>Cost</td>
           </tr>
         </thead>
         <tbody>
@@ -23,7 +20,7 @@
               <input type="number" name="quantityOrder" ng-model="tea.qty"/>
               <p>{{ tea.price / 100 | currency }}</p>
               <button ng-click="removeItem(tea)">x</button>
-              <p> Subtotal: {{(tea.price / 100) * (tea.qty) }}
+              <p> Subtotal: {{(tea.price / 100) * (tea.qty) | currency }}
               </th>
             </tr>
             <tr>

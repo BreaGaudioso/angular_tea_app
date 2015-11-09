@@ -28,6 +28,23 @@ apiRouter.route('/teas')
     res.json(response);
   })
 })
+apiRouter.route('/teas/:teaId')
+.get(function(req,res){
+  db.Tea.findById(req.params.teaId,function(error,tea){
+    if (error) return res.json({message: "Sorry, there was an error finding that ice-cream!", error: error});
+    res.json(tea);
+  })
+})
+.put(function(req,res){
+  db.Tea.findById(req.params.teaId, function (error, tea){
+    if (error) return res.json({message: "Sorry, there was an error finding that tea!", error: error});
+    tea.qty = req.body.qty;
+    tea.save(function(err){
+      if (err) res.send(err);
+      res.json({message: "tea updated"})
+    })
+  })
+})
 
 app.use('/', apiRouter);
 
