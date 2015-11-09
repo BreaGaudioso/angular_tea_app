@@ -3,29 +3,32 @@
   <div class="row">
     <div class= "col-lg-12 text-center">
       <h1>CHECKOUT</h1>
+      <h3> Your total is: {{total() / 100 | currency}}</h3>
     </div>
   </div>
-  <div class="row">
-    <div class= "col-lg-12 text-center">
+
+
+<div class="row">
+  <div class= "col-lg-12 text-center table">
+    <div class="table-responsive">
       <h1>Cart</h1>
-      <table>
+      <table class="table">
         <thead>
-          <tr>
-          </tr>
+          <th> Name </th>
+          <th> Amount</th>
+          <th>Price</th>
+          <th> Subtotal</th>
         </thead>
         <tbody>
-          <tr>
-            <th ng-repeat="tea in teaItems" ng-if="tea.qty > 0">
-              <p>{{ tea.name }}</p>
+          <tr ng-repeat="tea in teaItems" ng-if="tea.qty > 0">
+              <td>{{ tea.name }}</td>
+              <td>
               <input type="number" name="quantityOrder" ng-model="tea.qty"/>
-              <p>{{ tea.price / 100 | currency }}</p>
-              <button ng-click="removeItem(tea)">x</button>
-              <p> Subtotal: {{(tea.price / 100) * (tea.qty) | currency }}
-              </th>
+              </td>
+              <td>{{ tea.price / 100 | currency }}</td>
+              <td> Subtotal: {{(tea.price / 100) * (tea.qty) | currency }}
+              </td>
             </tr>
-            <tr>
-              <td> Total: {{total() / 100 | currency}}</td>
-              <td><td>
-              </tbody>
-            </table>
-          </div>
+          </tbody>
+        </table>
+      </div>

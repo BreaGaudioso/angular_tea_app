@@ -24,6 +24,7 @@
           }
           TeaFactory.teas[i].qty = Number(TeaFactory.teas[i].qty)
           TeaFactory.teas[i].qty += qty;
+
           $http.put('http://localhost:3333/teas/' + TeaFactory.teas[i]._id, TeaFactory.teas[i]).success(function(data){
             console.log('success');
           })
