@@ -1,6 +1,5 @@
 
 <div class="container">
-
   <div class="row">
     <div class= "col-lg-4">
       <label>Search by name: <input ng-model="searchText.name"></label>
@@ -31,7 +30,6 @@
       </select> <button ng-click="addToCart(tea.name, teaQty)" type="submit">Add to Bag</button>
     </h3>
     <h4>{{tea.price / 100 | currency }}</br></h4>
-    <p>In Stock? {{ tea.inStock | yesOrNo }}</p>
     <h5> Rating: {{tea.rating}}</h5>
     <p>Inredients: {{tea.ingredients}}</p>
     <p>Caffine Amount: {{tea.caffeineScale}}</p>
@@ -42,7 +40,4 @@
 </div>
 </div>
 </div>
-
-
-
 
